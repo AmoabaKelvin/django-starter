@@ -15,8 +15,8 @@ source venv/bin/activate # Activate the virtual environment
 echo Virtual Environment Activated!✅ $'\n'
 
 # Install prerequisite packages using pip
-echo ⌛Installing django, python-dotenv⌛
-pip install django python-dotenv
+echo ⌛Installing django, python-dotenv, django-debug-toolbar⌛
+pip install django python-dotenv django-debug-toolbar
 
 #Create a requirements.txt file for the newly installed packages
 pip freeze >requirements.txt
