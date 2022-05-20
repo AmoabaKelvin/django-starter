@@ -44,6 +44,19 @@ rm settings.py
 echo "from .base import *" >>settings/production.py
 echo "from .base import *" >>settings/local.py
 
+# Create the templates folder and the static folder.
+# But before that, move one level back to the project directory.
+cd ..
+mkdir templates static
+# Create the files index.html and style.css which go into the templates folder and
+# static folder respectively.
+touch templates/index.html
+touch static/style.css
+
+# Add a readme file to the project directory.
+touch README.md
+echo "This is a Django project for $project_name" >>README.md
+
 #  Ask the user whether they would like to use git or not.
 # if the response is yes, then create a git repository and add the project to the repository.
 echo Would you like to use git? $'(yes/no)'
@@ -53,7 +66,7 @@ if [ $git_response == "yes" ]; then
     git init
     echo Git repository has been initialized.✅ $'\n'
     # Create a .gitignore file and add the created virtual environment to it.
-    cd .. && touch .gitignore
+    touch .gitignore
     echo -e "venv \n*.pyc \n.vscode/ \n__pycache__/" >>.gitignore
     echo $'\n'
     echo 'Git has been set up for your project. You can now add files to the repository.'
